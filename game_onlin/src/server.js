@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+app.set("trust proxy", 1);
 const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
@@ -63,6 +64,7 @@ app.post("/exchange", async (req, res) => {
 
 const io = new Server(server, {
   path: "/socket.io",
+  transports: ["websocket"],
   cors: {
     origin: "*"
   }
