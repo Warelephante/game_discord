@@ -1,6 +1,8 @@
 import Phaser from "phaser";
 
 import { io } from "socket.io-client";
+import { patchUrlMappings } from '@discord/embedded-app-sdk'
+patchUrlMappings([{ prefix: '/api', target: 'https://game-discord.onrender.com' }]);
 
 const socket = io({
   path: "/socket.io",
