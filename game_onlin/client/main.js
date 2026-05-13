@@ -2,9 +2,9 @@ import Phaser from "phaser";
 
 import { io } from "socket.io-client";
 
-const socket = io("/", {
-  path: "https://game-discord.onrender.com/socket.io",
-  transports: ["polling", "websocket"]
+const socket = io("https://game-discord.onrender.com", {
+  path: "/socket.io",
+  transports: ["websocket"]
 });
 
 //const socket = io(window.location.origin, {
