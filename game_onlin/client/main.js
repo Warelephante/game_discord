@@ -4,9 +4,8 @@ import { io } from "socket.io-client";
 import { patchUrlMappings } from '@discord/embedded-app-sdk'
 patchUrlMappings([{ prefix: '/api', target: 'https://game-discord.onrender.com' }]);
 
-const socket = io('https://game-discord.onrender.com', {
-  path: "/socket.io",
-  transports: ["websocket"]
+const socket = io(window.location.origin, {
+  path: "/socket.io"
 });
 
 //const socket = io(window.location.origin, {
