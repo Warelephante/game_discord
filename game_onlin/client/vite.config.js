@@ -8,7 +8,7 @@ export default defineConfig({
 
     proxy: {
       "/socket.io": {
-        target: "http://localhost:3000",
+        target: "https://game-discord.onrender.com",
         ws: true,
         changeOrigin: true
       }
