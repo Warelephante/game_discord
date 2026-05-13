@@ -15,14 +15,6 @@ app.set("trust proxy", 1);
 const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
-app.use(
-  "/socket.io",
-  createProxyMiddleware({
-    target: "https://game-discord.onrender.com",
-    changeOrigin: true,
-    ws: true,
-  })
-);
 
 app.post("/exchange", async (req, res) => {
   const { code } = req.body;
