@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
@@ -55,13 +56,10 @@ app.post("/exchange", async (req, res) => {
   });
 }
 });
-const PORT1 = process.env.PORT || 3001;
-app.listen(PORT1, () => {
-  console.log("Auth server running on http://localhost:3001");
-});
+
 
 //const app = express();
-const server = http.createServer(app);
+
 
 const io = new Server(server, {
   path: "/socket.io",
